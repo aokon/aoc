@@ -16,6 +16,17 @@ class SectionAssigment
     result
   end
 
+  def second_part
+    result = 0
+    File.readlines(@file_name).each do |line|
+      line.strip!.split(',')
+          .then { |first, second| [convert_to_range(first), convert_to_range(second)] }
+          .then { |first, second| result += 1 if overlap?(first, second) || include?(first, second) }
+    end
+
+    result
+  end
+
   private
 
   def convert_to_range(str)
@@ -24,5 +35,9 @@ class SectionAssigment
 
   def overlap?(first, second)
     first.cover?(second) || second.cover?(first)
+  end
+
+  def include?(first, second)
+    first.include?(second.first) || second.include?(first.first)
   end
 end
