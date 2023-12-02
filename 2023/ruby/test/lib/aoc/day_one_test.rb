@@ -1,7 +1,7 @@
-require 'minitest/autorun'
-require_relative 'day_one'
+require "minitest/autorun"
+require_relative "../../test_helper"
 
-describe DayOne do
+describe Aoc::DayOne do
   describe "self.part_one" do
     before do
       @input = <<-INPUT
@@ -13,7 +13,7 @@ describe DayOne do
     end
 
     it "returns valid result result" do
-      _(DayOne.part_one(@input)).must_equal 142
+      _(Aoc::DayOne.part_one(@input)).must_equal 142
     end
   end
 
@@ -32,7 +32,7 @@ describe DayOne do
     end
 
     it "returns valid result result" do
-      _(DayOne.part_two(@input)).must_equal 352
+      _(Aoc::DayOne.part_two(@input)).must_equal 352
     end
   end
 end
