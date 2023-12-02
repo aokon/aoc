@@ -5,6 +5,10 @@ module Aoc
     def self.part_one(input)
       PartOne.new.call(input)
     end
+
+    def self.part_two(input)
+      PartTwo.new.call(input)
+    end
   end
 
   class PartOne
@@ -47,6 +51,28 @@ module Aoc
       return false if result.size > 1
 
       result.first
+    end
+  end
+
+  class PartTwo
+    def call(input)
+      input.split("\n").inject(0) do |sum, item|
+        subsets = item.strip.split(":").last
+        sum += process_subsets(subsets)
+        sum
+      end
+    end
+
+    private
+
+    def process_subsets(subsets)
+      subsets.split(";").inject({"red" => [], "green" => [], "blue" => []}) do |memo, subset|
+        subset.scan(/((\d+) (red|green|blue))/).each do |cube_parts|
+          memo[cube_parts[2]] << cube_parts[1].to_i
+        end
+
+        memo
+      end.inject(1) { |memo, (k, v)| memo *= v.max }
     end
   end
 end
