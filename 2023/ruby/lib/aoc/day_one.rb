@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module Aoc
-  class DayOne
+  module DayOne
     WORDS_TO_NUMBERS = {
       "one" => "1",
       "two" => "2",

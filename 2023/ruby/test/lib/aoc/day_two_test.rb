@@ -13,7 +13,7 @@ describe Aoc::DayTwo do
       INPUT
     end
 
-    it "returns valid result result" do
+    it "returns valid result" do
       _(Aoc::DayTwo.part_one(@input)).must_equal 8
     end
   end
@@ -29,7 +29,7 @@ describe Aoc::DayTwo do
       INPUT
     end
 
-    it "returns valid result result" do
+    it "returns valid result" do
       _(Aoc::DayTwo.part_two(@input)).must_equal 2286
     end
   end
